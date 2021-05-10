@@ -5,18 +5,26 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 
 class NavigationHomePage extends StatefulWidget {
-  NavigationHomePage(
-      {Key key,
-      @required this.pages,
-      @required this.observers,
-      @required this.bottomNavigationBarItems})
-      : assert(pages != null),
+  NavigationHomePage({
+    Key key,
+    @required this.pages,
+    @required this.observers,
+    @required this.bottomNavigationBarItems,
+    this.bottomNavigationBarUnselectedItemColor: Colors.grey,
+    this.bottomNavigationBarSelectedItemColor: Colors.white,
+    this.bottomNavigationBarType: BottomNavigationBarType.fixed,
+    this.bottomNavigationBarOnTap,
+  })  : assert(pages != null),
         assert(bottomNavigationBarItems != null),
         assert(pages.length == bottomNavigationBarItems.length),
         super(key: key);
   final List<PageInfo> pages;
   final List<RouteObserver<PageRoute<dynamic>>> observers;
   final List<BottomNavigationBarItem> bottomNavigationBarItems;
+  final Color bottomNavigationBarUnselectedItemColor;
+  final Color bottomNavigationBarSelectedItemColor;
+  final BottomNavigationBarType bottomNavigationBarType;
+  final Function(int index) bottomNavigationBarOnTap;
 
   @override
   _NavigationHomePageState createState() => _NavigationHomePageState();
@@ -36,6 +44,7 @@ class _NavigationHomePageState extends State<NavigationHomePage> {
 
   void _onItemTapped(int index) {
     NavigationStacks._changeIndex(index);
+    widget.bottomNavigationBarOnTap(index);
   }
 
   Future<bool> _onWillPop() {
@@ -53,6 +62,9 @@ class _NavigationHomePageState extends State<NavigationHomePage> {
       child: Scaffold(
         body: NavigationStacks.stacks[_NavBarIndex.getIndex()].last.page,
         bottomNavigationBar: BottomNavigationBar(
+          unselectedItemColor: widget.bottomNavigationBarUnselectedItemColor,
+          selectedItemColor: widget.bottomNavigationBarSelectedItemColor,
+          type: widget.bottomNavigationBarType,
           currentIndex: _NavBarIndex.getIndex(),
           onTap: _onItemTapped,
           items: widget.bottomNavigationBarItems,
