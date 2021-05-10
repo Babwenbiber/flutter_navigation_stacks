@@ -39,7 +39,7 @@ class _NavigationHomePageState extends State<NavigationHomePage> {
   }
 
   Future<bool> _onWillPop() {
-    NavigationStacks._willPop();
+    NavigationStacks.pop();
   }
 
   refresh() {
@@ -106,12 +106,6 @@ class NavigationStacks {
     _homeState.refresh();
   }
 
-  static _willPop() {
-    if (!pop()) {
-      _popStackHistory();
-    }
-  }
-
   static _popStackHistory() {
     print("popping Stack history $_stackHistory");
     String prevName = stacks[_NavBarIndex.getIndex()].last.routeName;
@@ -132,6 +126,7 @@ class NavigationStacks {
     print(
         "popping stacknum $stackNumber with len ${stacks[stackNumber].length}");
     if (stacks[stackNumber].length <= 1) {
+      _popStackHistory();
       return false;
     }
     String prevName = stacks[stackNumber].last.routeName;
