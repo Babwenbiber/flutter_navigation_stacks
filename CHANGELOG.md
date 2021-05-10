@@ -6,3 +6,6 @@ Extended Example
 
 ## 0.0.3
 Extended Readme
+
+## 0.0.4
+Fix: Repo name
