@@ -1,3 +1,8 @@
 ## 0.0.1
+Initial Package
 
-* TODO: Describe initial release.
+## 0.0.2
+Extended Example
+
+## 0.0.3
+Extended Readme
