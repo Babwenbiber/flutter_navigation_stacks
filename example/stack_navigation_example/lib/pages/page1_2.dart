@@ -1,31 +1,32 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:stack_navigation_example/nav/navigation_utils.dart';
 
-import '../nav/navigation_utils.dart';
-
-class Page2_1 extends StatelessWidget {
-  const Page2_1({
+class Page1_2 extends StatelessWidget {
+  const Page1_2({
     Key key,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    print("2_1 building");
+    print("1_2 building");
     return Scaffold(
       appBar: AppBar(
-        title: Text("page 2 tab 1"),
+        automaticallyImplyLeading: true,
+        title: Text("page 1 tab 2"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("this is page 2 tab 1"),
+            Text("this is page 1 tab 2"),
             SizedBox(
               height: 20,
             ),
             FloatingActionButton.extended(
-              label: Text('previous page'),
+              label: Text('next page'),
               onPressed: () {
-                StackNavigator.navigatePop();
+                StackNavigator.navigateToPage2_2();
               },
             )
           ],

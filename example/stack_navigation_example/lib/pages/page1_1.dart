@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../nav/navigation_utils.dart';
+import 'package:stack_navigation_example/nav/navigation_utils.dart';
 
 class Page1_1 extends StatelessWidget {
   const Page1_1({Key key}) : super(key: key);

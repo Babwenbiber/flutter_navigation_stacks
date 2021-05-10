@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stack_navigation/stack_navigation.dart';
 
+import '../pages/common_page.dart';
 import '../pages/page1_1.dart';
 import '../pages/page1_2.dart';
 import '../pages/page2_1.dart';
@@ -37,5 +38,9 @@ class StackNavigator {
 
   static navigateToPage2_2() {
     NavigationStacks.push(Page2_2(), "page2_2");
+  }
+
+  static navigateToCommonPage() {
+    NavigationStacks.push(CommonPage(), "common");
   }
 }

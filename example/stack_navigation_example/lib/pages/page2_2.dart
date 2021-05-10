@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../nav/navigation_utils.dart';
+import 'package:stack_navigation_example/nav/navigation_utils.dart';
 
 class Page2_2 extends StatelessWidget {
   const Page2_2({
@@ -26,6 +25,12 @@ class Page2_2 extends StatelessWidget {
               label: Text('previous page'),
               onPressed: () {
                 StackNavigator.navigatePop();
+              },
+            ),
+            FloatingActionButton.extended(
+              label: Text('common page'),
+              onPressed: () {
+                StackNavigator.navigateToCommonPage();
               },
             )
           ],
