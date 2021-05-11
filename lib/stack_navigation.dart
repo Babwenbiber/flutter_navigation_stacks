@@ -133,6 +133,12 @@ class NavigationStacks {
     _homeState.refresh();
   }
 
+  static bool popAndRefresh() {
+    bool res = pop();
+    _homeState.refresh();
+    return res;
+  }
+
   static bool pop() {
     int stackNumber = _NavBarIndex.getIndex();
     print(

@@ -1,6 +1,6 @@
 name: stack_navigation
 description: This packages allows navigation with a history foreach item in the bottomnavigation bar. 
-version: 0.0.7
+version: 0.0.8
 repository: https://github.com/Babwenbiber/flutter_navigation_stacks.git
 
 

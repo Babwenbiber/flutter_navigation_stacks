@@ -18,3 +18,6 @@ Fixes
 
 ## 0.0.7
 added optional parameters to design bottomnav bar
+
+##0.0.8
+new function popAndRefresh
